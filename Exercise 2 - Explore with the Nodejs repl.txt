@@ -1,0 +1,5 @@
+Exercise 2: Explore with the Node.js REPL
+
+Use the Node.js REPL to list the methods provided by the Node.js core crypto module. Use one of these methods to generate a random ID.
+Utilizza il REPL di Node.js per elencare i metodi forniti dal modulo di crittografia principale di Node.js.
+ Utilizza uno di questi metodi per generare un ID casuale.
