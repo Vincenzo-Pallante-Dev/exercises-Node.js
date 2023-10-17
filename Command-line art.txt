@@ -1,5 +1,0 @@
-Command-line art
-
-Crea un nuovo progetto Node.js e installa il pacchetto figlet (https://www.npmjs.com/package/figlet).
- Scrivi uno script che usi la funzione di questo pacchetto per produrre grafica basata su testo
- (il pacchetto FIGLET README ha una sezione 'Avvio rapido'). Esegui lo script con Node.js.
