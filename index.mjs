@@ -1,13 +1,29 @@
-import * as fs from "node:fs";
+function luckyDraw(player) {
+  return new Promise((resolve, reject) => {
+    const win = Boolean(Math.round(Math.random()));
 
-const content = "Questo è il contenuto del mio file di testo";
-const fileName = "file.txt";
-const settings = { encoding: "utf-8" };
+    process.nextTick(() => {
+      if (win) {
+        resolve(`${player} won a prize in the draw!`);
+      } else {
+        reject(new Error(`${player} lost the draw.`));
+      }
+    });
+  });
+}
 
-fs.writeFile(fileName, content, settings, (err) => {
-  if (err) {
+luckyDraw("Joe")
+  .then((result) => {
+    console.log(result);
+    return luckyDraw("Caroline");
+  })
+  .then((result) => {
+    console.log(result);
+    return luckyDraw("Sabrina");
+  })
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((err) => {
     console.error(err);
-  } else {
-    console.log("Il file è stato scritto con successo");
-  }
-});
+  });
