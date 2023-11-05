@@ -4,7 +4,7 @@ import morgan from "morgan";
 import { getAll, getOneById, create, updateById, deleteById, } from "./controllers/planets.js";
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 app.use(express.json());
 app.use(morgan("dev"));
 // Tutti i pianeti
