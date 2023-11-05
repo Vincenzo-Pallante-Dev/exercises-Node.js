@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+dotenv.config();
 import morgan from "morgan";
 
 import {
@@ -11,7 +12,9 @@ import {
   createImage,
 } from "./controllers/planets.js";
 import multer from "multer";
-import { logIn, signUp } from "./controllers/users.js";
+import { logIn, signUp, logOut } from "./controllers/users.js";
+import authorize from "./authorize.js";
+import "./passport.js";
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -24,10 +27,8 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-dotenv.config();
-
 const app = express();
-const PORT = process.env.KEY || 3000;
+const PORT = process.env.PORT;
 
 app.use("/uploads", express.static("uploads"));
 
@@ -58,6 +59,7 @@ app.post("/planets/:id/image", upload.single("image"), createImage);
 // Users
 app.post("/users/login", logIn);
 app.post("/users/signup", signUp);
+app.get("/users/logout", authorize, logOut);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port http://localhost:${PORT}`);
