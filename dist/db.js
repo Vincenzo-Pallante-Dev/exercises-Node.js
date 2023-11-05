@@ -30,6 +30,7 @@ const setupDb = () => __awaiter(void 0, void 0, void 0, function* () {
   `);
     yield db.none(`INSERT INTO planets (name) VALUES ('Earth')`);
     yield db.none(`INSERT INTO planets (name) VALUES ('Mars')`);
+    yield db.none(`INSERT INTO users (username, password) VALUES ('Vincenzo', 'pass')`);
 });
 setupDb();
 export { db };
